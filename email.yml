@@ -1,0 +1,45 @@
+# A mapping of learn_type's and stages (setup, followup, or followup_2) to email Details
+# template: The name of the email template in the html_templates directory
+# contacted_field: The column header of the field in the attendee Google Sheet to check if this email was already sent
+# subject_prefix: The start of the email subject. Other details like training_name from the training config YAML file and learner_first_name from the Google Sheet are appended in setup.py
+
+public:
+  setup:
+    template: "public_learn.html"
+    contacted_field: "contacted"
+    subject_prefix: "Welcome to "
+  followup:
+    template: "public_followup.html"
+    contacted_field: "follow_up_1"
+    subject_prefix: "Friendly Reminder: Pre-work for "
+  followup_2:
+    template: "public_followup_2.html"
+    contacted_field: "follow_up_2"
+    subject_prefix: "Friendly Reminder: Pre-work for "
+  wrapup:
+    template: "public_wrapup.html"
+    contacted_field: "wrap_up"
+    subject_prefix: "Thanks for joining us at "
+
+private:
+  setup:
+    template: "private_learn.html"
+    contacted_field: "contacted"
+    subject_prefix: "Welcome to "
+  followup:
+    template: "private_followup.html"
+    contacted_field: "follow_up_1"
+    subject_prefix: "Friendly Reminder: Pre-work for "
+  followup_2:
+    template: "private_followup_2.html"
+    contacted_field: "follow_up_2"
+    subject_prefix: "Friendly Reminder: Pre-work for "
+  wrapup:
+    template: "private_wrapup.html"
+    contacted_field: "wrap_up"
+    subject_prefix: "Thanks for joining us at "
+internal:
+  setup:
+    template: "internal_learn.html"
+    contacted_field: "contacted"
+    subject_prefix: "Let's jump into "

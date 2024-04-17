@@ -1,0 +1,60 @@
+learn_type: "private" # must be jumpstart, public, private, or internal to match config/email.yml
+
+google_sheet:
+  spreadsheet_id: 1Q2apQ3fEFrtX2T2qzz8jPhZM05Mpgjlf0DtYWZX_1X0
+  spreadsheet_range: learners!A1:Z50
+
+session:
+  training_name: dbt Learn
+  organization: Red Ventures # Client name
+  dbt_cloud_account: Red Ventures dbt Learn # Name of the account in dbt Cloud e.g. Symend dbt Learn
+  dbt_cloud_account_id: 43500
+  session_days: January 25 - 27 # list days or specific consecutive range
+  number_of_sessions: 3
+  slack_channel: learn-redventures-2022-01-25 # Name of the private channel in dbt Slack, e.g. learn-dbt-labs-2021-01-01
+  instructor_first: Kyle
+  instructor_full: Kyle Coapman
+  instructor_role: Head of Training
+  instructor_slack: coap
+  intro_slides_link: https://docs.google.com/presentation/d/1OXaUk9HQ9vuhzJ2bw4uMFUoOCJIzEk-ShhZtxodoLW4/edit?usp=sharing
+  agenda_link: https://docs.google.com/spreadsheets/d/1OEEn1NkzJtMwaxtqrhANVF8WJjfsf8wW5KWabd-Q73w/edit?usp=sharing
+  snowflake_password: dbt2022  # make a training password e.g. dbt2021
+  snowflake_user_comment: Red Ventures dbt Learn  # Comment for future lookups in Snowflake e.g. Snowflake Group Training
+  snowflake_days_to_expiry: 45 # Days from the moment to running the script to two weeks after the Learn ends
+  
+  ### These configs are exclusively used for the wrap up email
+  n_attendees: 30  # total number of learners
+  n_responses: 8 # total number of responses to survey
+  survey_link: https://forms.gle/fYbyaDW2hx5uKv259 # this link should remain the same, this is the link to the global training survey
+  recordings: # list the test, link, and password for each recording
+    - day_1: 
+      text: "Day 1 recording"
+      link: https://app.gong.io/e/c-share/?tkn=i15uzc9jq0lv1k306li8vb7fh
+    - day_2: 
+      text: "Day 2 recording"
+      link: https://app.gong.io/e/c-share/?tkn=18mdot1nfc9d51jlugbuyccmmh
+    - day_3_part_1: 
+      text: "Day 3, part 1 recording"
+      link: https://app.gong.io/e/c-share/?tkn=d5xu3pg7vw98fec2q6bs3u3x
+    - day_3_part_2:
+      text: "Day 3, part 2 recording"
+      link: https://app.gong.io/e/c-share/?tkn=50rn4clkwlgwr6h06j31lr3p
+  resources: # list the name and link of resources captured in the training
+    - name: "An analytics engineer is really just a pissed off data analyst"
+      link: https://www.hashpath.com/2020/12/an-analytics-engineer-is-really-just-a-pissed-off-data-analyst/
+    - name: The Analytics Engineer
+      link: https://locallyoptimistic.com/post/analytics-engineer/
+    - name: Locally Optimistic
+      link: https://locallyoptimistic.com/
+    - name: We the purple people
+      link: https://blog.getdbt.com/we-the-purple-people/
+    - name: How we structure our dbt project
+      link: https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355
+    - name: Column-level lineage issue in Github
+      link: https://github.com/dbt-labs/dbt-core/discussions/4458
+    - name: dbt model descriptions
+      link: https://docs.getdbt.com/reference/resource-properties/description#link-to-another-model-in-a-description
+    - name: Can I test the uniqueness of two columns?
+      link: https://docs.getdbt.com/faqs/uniqueness-two-columns#2-test-an-expression
+    - name: On the limits of incrementality
+      link: https://discourse.getdbt.com/t/on-the-limits-of-incrementality/303

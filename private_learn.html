@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <style>
+      #body {
+        font-family: Verdana, Geneva, sans-serif;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="body"
+      style="color: #3b4252; font-family: Arial, Helvetica, sans-serif"
+    >
+      <p>Hi {{ first_name }}!</p>
+
+      <p>
+        My name is {{ instructor_first }} and I will be organizing the upcoming
+        dbt Learn training for {{ organization }} on {{ session_days }}.
+      </p>
+
+      <p>
+        Please reply all to this email if you
+        have not received the corresponding calendar invitations and we will be
+        sure to send them your way.
+      </p>
+
+      <p>
+        There is a <strong>bunch of important pre-work</strong> that needs to be
+        completed before the training. Please start this as soon as possible.
+      </p>
+
+      <p><strong>Pre-work Checklist:</strong></p>
+
+      <ol>
+        <li>
+          <strong>(3 minutes)</strong> {% if slack_status != 'added' %}Join the
+          <a href="https://community.getdbt.com/"
+            ><strong>dbt Community Slack</strong></a
+          >
+          and send me a direct message (@{{ instructor_slack }}) so I can add
+          you to our private channel for this learning program. {% else %} Check
+          out the private channel #{{ slack_channel }} in the
+          <a href="https://community.getdbt.com/"
+            ><strong>dbt Community Slack</strong></a
+          >. I've already invited you to the channel. {% endif %} This is where
+          we will communicate before, during, and after the course.
+        </li>
+        <!-- <li>
+          <strong>(2 minutes)</strong> Update your slide
+          <strong><a href="{{ intro_slides_link }}">here</a></strong> for
+          introductions on Day 1.
+        </li> -->
+        <li>
+          <strong>(2 minutes)</strong> {% if invited_to_dbt_cloud == "Y" %}
+          Access the training account in dbt Cloud: I've already associated the training account with your login for your dbt Cloud account for {{ organization }}.  
+          This is a separate training environment that can be accessed through the same login.  Let me know directly if you have issues accessing this account.
+          {% else %}
+          Accept the invite to dbt Cloud: I sent you an invite to join dbt Cloud at this email address.  Click the link and set up an account.  
+          This is separate from any dbt Cloud accounts you may have in the future.
+          {% endif %}
+        </li>
+        <li>
+          <strong>(15 minutes)</strong> Finish your dbt project setup.
+          <ol type="a">
+            <li>
+              <strong
+                >Navigate to the {{ dbt_cloud_account }} account on dbt
+                Cloud.</strong
+              >
+              You may need to click on the account dropdown next to the folder
+              icon in the top right corner to find this account.
+            </li>
+            <li>
+              <strong>Find your project.</strong> Along the bar at the top, click
+              the "Develop" button to access your development environment inside of Cloud.
+            </li>
+            <li>
+              <strong>Enter your development credentials.</strong> In the pop-up, 
+              click on the green button that says "Configure credentials". This will take
+              you to your development credentials for your project. Click the "Edit" button
+              at the bottom right of the panel, scroll down to the "Development Credentials"
+              section and input your Snowflake username and password - Snowflake credentials 
+              can be found at the bottom of this email. Click "Save".
+            </li>
+            <li>
+              <strong>Start developing.</strong> Along the bar at the top, click
+              the "Develop" button to access your development environment inside of Cloud.
+              In the command line at the bottom of the IDE, type 'dbt run' and hit enter
+              to ensure your project is executing without error. 
+              Now you're ready to start working in dbt Cloud!
+            </li>
+          </ol>
+        </li>
+      </ol>
+
+      <p><strong>Troubleshooting:</strong></p>
+
+      Post any questions or issues in the private Slack channel mentioned above so that others
+      can learn from your questions as well. If you run into any issues with the 
+      pre-work, there will be time during the training to debug.
+
+      <p>I’m looking forward to learning together!</p>
+
+      <p>
+        <strong>{{ instructor_full }}</strong><br />
+        {{ instructor_role }}<br />
+        dbt Labs
+      </p>
+
+      <h2 style="border-bottom: 1px solid #ccc; display: block">
+        Details: Snowflake Credentials
+      </h2>
+
+        <ul>
+          <li>account URL: https://fka50167.snowflakecomputing.com/</li>
+          <li>account ID: fka50167</li>
+          <li>username: {{ sf_username }}</li>
+          <li>password: {{ snowflake_password }}</li>
+        </ul>
+    </div>
+  </body>
+</html>

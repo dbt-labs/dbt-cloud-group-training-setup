@@ -1,0 +1,15 @@
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+snowflake-connector-python
+PyYAML
+Jinja2
+pybase64
+html2text
+urllib3>=1.26.5 # not directly required, pinned by Snyk to avoid a vulnerability
+rsa>=4.7 # not directly required, pinned by Snyk to avoid a vulnerability
+databricks-cli
+requests
+pyarrow<8.1.0,>=8.0.0
+
+click

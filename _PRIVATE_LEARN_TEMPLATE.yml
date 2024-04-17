@@ -1,0 +1,45 @@
+learn_type: "private" # must be public, private, or internal to match config/email.yml
+
+google_sheet:
+  spreadsheet_id: 
+  spreadsheet_range: learners!A1:Z50
+
+session:
+  training_name: dbt Learn
+  organization: # Client name
+  dbt_cloud_account:  # Name of the account in dbt Cloud e.g. Symend dbt Learn
+  dbt_cloud_account_id:  
+  session_days: # list days or specific consecutive range
+  number_of_sessions: 
+  slack_channel:  # Name of the private channel in dbt Slack, e.g. learn-dbt-labs-2021-01-01
+  instructor_first: Alexis
+  instructor_full: Alexis Wong Baird
+  instructor_role: Analytics Engineering Instructor
+  instructor_slack: alexisb
+  intro_slides_link: 
+  agenda_link: 
+  snowflake_password:  # make a training password e.g. dbt2021
+  snowflake_user_comment:  # Comment for future lookups in Snowflake e.g. Snowflake Group Training
+  snowflake_days_to_expiry: 45 # Days from the moment to running the script to two weeks after the Learn ends
+  
+  ### These configs are exclusively used for the wrap up email
+  n_attendees:  # total number of learners
+  n_responses:  # total number of responses to survey
+  survey_link: https://forms.gle/fYbyaDW2hx5uKv259 # this link should remain the same, this is the link to the global training survey
+  recordings: # list the test, link, and password for each recording
+    - day_1: 
+      text: 
+      link: 
+    - day_2: 
+      text: 
+      link: 
+    - day_3: 
+      text: 
+      link: 
+  resources: # list the name and link of resources captured in the training
+    - name: 
+      link: 
+    - name: 
+      link: 
+    - name: 
+      link: 
