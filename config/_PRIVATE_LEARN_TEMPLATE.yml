@@ -12,10 +12,10 @@ session:
   session_days: # list days or specific consecutive range
   number_of_sessions: 
   slack_channel:  # Name of the private channel in dbt Slack, e.g. learn-dbt-labs-2021-01-01
-  instructor_first: Alexis
-  instructor_full: Alexis Wong Baird
-  instructor_role: Analytics Engineering Instructor
-  instructor_slack: alexisb
+  instructor_first: Beth
+  instructor_full: Beth Hipple
+  instructor_role: Associate Manager, Technical Instruction
+  instructor_slack: beth.hipple (dbt Labs)
   intro_slides_link: 
   agenda_link: 
   snowflake_password:  # make a training password e.g. dbt2021
@@ -25,17 +25,14 @@ session:
   ### These configs are exclusively used for the wrap up email
   n_attendees:  # total number of learners
   n_responses:  # total number of responses to survey
-  survey_link: https://forms.gle/fYbyaDW2hx5uKv259 # this link should remain the same, this is the link to the global training survey
+  survey_link: # this link will be specific to the organization running the training
   recordings: # list the test, link, and password for each recording
-    - day_1: 
+    - session_1: 
       text: 
       link: 
-    - day_2: 
+    - session_1: 
       text: 
-      link: 
-    - day_3: 
-      text: 
-      link: 
+      link:  
   resources: # list the name and link of resources captured in the training
     - name: 
       link: 
