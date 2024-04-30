@@ -26,7 +26,7 @@ A repo for documentation and code involved in setting up different dbt Learn exp
 5. Create `snowflake_creds.yml` in the `creds/` folder with the following template. These are the Snowflake credentials that will be used to create the Snowflake users for each learner.
 
    ```yml
-   user: "dbtlearn"
+   user: "enter username here"
    password: "enter password here"
    account: "fka50167"
    database: "ANALYTICS"
@@ -38,15 +38,15 @@ A repo for documentation and code involved in setting up different dbt Learn exp
 
   ```json
   {
-    "dbt_cloud_token": "e1171681a56a5adba8dc5561ab28f8c6259a6678",
-    "dbt_cloud_user_id": 15307,
-    "snowflake_user": "fishtown_alexis",
-    "snowflake_password": "enter password here",
-    "schema": "dbt_abaird"
+    "dbt_cloud_token": "enterdbt cloud token",
+    "dbt_cloud_user_id": enter dbt cloud user id,
+    "snowflake_user": "enter username",
+    "snowflake_password": "enter password",
+    "schema": "enter schema"
   }
   ```
 
-  - The dbt_cloud_token is accessible from dbt Cloud under Profile > API > API Key.
+  - The dbt_cloud_token is accessible from dbt Cloud under Your Profile > Personal profile > API
   - The dbt_cloud_user_id is your personal user ID in dbt Cloud. You can find it by navigating to any dbt Cloud project you're a part of, navigating to users, searching for your user, clicking on your name, and then looking at the URL. Grab the ID at the end of the URL. For example, in the URL https://cloud.getdbt.com/settings/accounts/181132/users/87365 your user ID is 87365.
   - The Snowflake user and password is your personal user account that will be used as your development credentials for each of the dbt Cloud projects the script creates.
 
@@ -66,15 +66,42 @@ A repo for documentation and code involved in setting up different dbt Learn exp
 - Download the OAuth 2.0 Client ID. Save this as `credentials.json` in `creds/`.
 - Excellent! Now you have all the credentials that you need to access Google and Snowflake!
 
+**Optional**: Set up outlook connection, only if you want to send email via an Outlook email account.
+
+Register your app
+
+- Go to Azure portal login with the organizations account that is linked to the email you want to use
+- Navigate to the "App Registration" using the search bar
+- Register a new app
+   - Give it a name like "dbt-learn-setup"
+   - Set supported account type to be "Accounts in this organizational directory only"
+   - Set the redirect URI to "web" with the following link "http://localhost/"
+- Open API Premissions in the menu on the right and add the following premissions for the microsoft Graph API
+   - email
+   - mail.ReadWrite
+   - User.Read
+   - User.ReadBasics.All
+- Create a folder called `azure_credentials.json` in the `creds\` folder. 
+- Copy the client ID of the registered app save it to azure_credentials.json in the creds\ folder. Example of file:
+
+```
+{
+  "client_id": "xxx-xxx"
+}
+```
+
+
 9. Create a folder at the root of the repo called `html_compiled`. This is where the compiled HTML will live when you run the script to create draft emails for each learner. This is also in the .gitignore and won't be committed to the repo.
+   
 
 ### Set Up a New Learn
 
-1. Create a new dbt Cloud account and name it with the format "CLIENT Group dbt Learn MONTH YEAR". For example "Siemens Group dbt Learn May 2023". Use the backend to set billing plan to "Free". Also add the number of developer seats and increase the run slots - maybe to 5. Note the account ID (e.g., in the URL https://cloud.getdbt.com/#/accounts/28872 the account ID is 28872) for the config file you will create in a couple of steps.  Additionally, at the account level, set a `starter repo url` with the following text: `git@github.com:dbt-labs/dbt-learn-gt-init.git`.  This will allow all repo's to start with basic modeling, tests, and docs of the Jaffle Shop data.
+1. **Note if you are a partner trainer, then skip this step. You will use the one of the two training accounts your team already has**
+Create a new dbt Cloud account and name it with the format "CLIENT Group dbt Learn MONTH YEAR". For example "Siemens Group dbt Learn May 2023". Use the backend to set billing plan to "Free". Also add the number of developer seats and increase the run slots - maybe to 5. Note the account ID (e.g., in the URL https://cloud.getdbt.com/#/accounts/28872 the account ID is 28872) for the config file you will create in a couple of steps.  Additionally, at the account level, set a `starter repo url` with the following text: `git@github.com:dbt-labs/dbt-learn-gt-init.git`.  This will allow all repo's to start with basic modeling, tests, and docs of the Jaffle Shop data.
 
 2. Check out a new branch.
 
-3. Create a new file using the jumpstart, public, or private templates in the [config](config) folder. Name it based on the date of the training and the client name. Update the fields for the upcoming training. It's often easiest to copy and paste from a previous training to get all of the relevant fields.
+3. Create a new file using the private template in the [config](config) folder. Name it based on the date of the training and the client name. Update the fields for the upcoming training.
 
 4. Create a virtual environment that you can use to run the script. First create the virtual environment with the command `python3 -m venv env`. Then activate it using the command `source env/bin/activate`. Then install all dependencies using the command `pip3 install --upgrade pip && pip install -r requirements.txt`.
 
@@ -97,16 +124,8 @@ A repo for documentation and code involved in setting up different dbt Learn exp
 
 10. Double check the email drafts and then send them.
 
-11. Commit your changes to your branch and create a PR in GitHub.
+11. Commit your changes to your branch.
 
-### Send Follow-up Emails
-
-Follow the same instructions as above in [Do this for every new learn setup](#Do-this-for-every-new-learn-setup) but when running the script on the command line, replace `setup` with `followup` or `followup_2`. Note that the script will only create email drafts - it skips over creating Snowflake users and dbt Cloud projects because it assumes you did that in the setup stage.
-
-### Sending wrap up emails
-At the end of the training, there is a template for sending wrap up emails to learners. This will include a customized link to set up a password for the learner.  First you will need to add additional information to the config file (see `_PRIVATE_LEARN_TEMPLATE.yml` or `_PUBLIC_LEARN_TEMPLATE.yml).  Then, when running the script replace `setup` with `wrapup` and the emails will instantly be drafted in your Gmail inbox.
-
-[In the future, we should add some tooling to this script to be able to auto-enroll learners directly form the script :fire:]
 
 ### Reauthorizing Google Credentials
 The Google credentials are saved by default to the `/creds/token.pickle` file the first time you use `helper_scripts/goog/auth_google.py` in any of the scripts. In order to regenerate the credentials (which is needed when the scopes change to include write permissions) just delete the `/creds/token.pickle` file. The next time you run a script that uses the `auth_google.py` script, it will open in the browser to create the credentials and the new credentials will get pickled and used for future uses.
