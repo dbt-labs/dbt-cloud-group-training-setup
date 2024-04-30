@@ -13,3 +13,6 @@ requests
 pyarrow<8.1.0,>=8.0.0
 
 click
+msgraph-core
+azure-identity
+azure-core
