@@ -6,7 +6,7 @@ A repo for documentation and code involved in setting up different dbt Learn exp
 
 <!-- TODO: make new Loom video that includes the dbt Cloud project creation -->
 
-[Loom Video: How to set up a dbt Learn/Jumpstart](https://www.loom.com/share/59561da83d9b4dc59d22aaa0dc95c7e9)
+[Loom Video: How to set up a dbt Learn](https://www.loom.com/share/59561da83d9b4dc59d22aaa0dc95c7e9)
 
 ### First Time Set-Up
 
