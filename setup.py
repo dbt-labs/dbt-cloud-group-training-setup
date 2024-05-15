@@ -1,9 +1,9 @@
 import argparse
 import yaml
 import helper_scripts.dbt.create_project as create_dbt_project
-import helper_scripts.goog.auth_google as auth_google
-import helper_scripts.goog.gmail_service as gmail_service
-import helper_scripts.goog.read_sheets as read_sheets
+import helper_scripts.google.auth_google as auth_google
+import helper_scripts.google.gmail_service as gmail_service
+import helper_scripts.google.read_sheets as read_sheets
 import helper_scripts.html.merge_html as merge_html
 import helper_scripts.html.write_draft as write_draft
 import helper_scripts.snowflake.sf_open as sf_open
