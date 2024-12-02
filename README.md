@@ -21,6 +21,7 @@ A repo for documentation and code involved in setting up different dbt Learn exp
    html_compiled/
    ```
 
+
 4. Create a folder at the root of your cloned repo called `creds`.
 
 5. Create `snowflake_creds.yml` in the `creds/` folder with the following template. These are the Snowflake credentials that will be used to create the Snowflake users for each learner.
@@ -102,6 +103,13 @@ Create a new dbt Cloud account and name it with the format "CLIENT Group dbt Lea
 2. Check out a new branch.
 
 3. Create a new file using the private template in the [config](config) folder. Name it based on the date of the training and the client name. Update the fields for the upcoming training.
+
+4. Open the `create_project.py` in the `config/dbt` folder and update the DBT_CLOUD_BASE_URL. To update the correct value, find the Access URL by going Account settings > Account > Access URL.  E.g. If your Access URL is `https://a1.bc2.dbt.com`, your DBT_CLOUD_BASE_URL will be `https://a1.bc2.dbt.com/api/v3/`. Pay attention to include the `api/v3` at the end of the URL.
+```json
+{
+  DBT_CLOUD_BASE_URL = "https://a.bc.dbt.com/api/v3/" 
+}
+```
 
 4. Create a virtual environment that you can use to run the script. First create the virtual environment with the command `python3 -m venv env`. Then activate it using the command `source env/bin/activate`. Then install all dependencies using the command `pip3 install --upgrade pip && pip install -r requirements.txt`.
 
