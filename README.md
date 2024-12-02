@@ -46,7 +46,7 @@ A repo for documentation and code involved in setting up different dbt Learn exp
   }
   ```
 
-  - The dbt_cloud_token is accessible from dbt Cloud under Your Profile > Personal profile > API
+  - The dbt_cloud_token is accessible by Creating a new Personal access token (PAT) from dbt Cloud under Your Profile > API tokens > Personal tokens. Pay attention to create a PAT and not a Service token. Your PAT should start with a dbtu_ prefix.
   - The dbt_cloud_user_id is your personal user ID in dbt Cloud. You can find it by navigating to any dbt Cloud project you're a part of, navigating to users, searching for your user, clicking on your name, and then looking at the URL. Grab the ID at the end of the URL. For example, in the URL https://cloud.getdbt.com/settings/accounts/181132/users/87365 your user ID is 87365.
   - The Snowflake user and password is your personal user account that will be used as your development credentials for each of the dbt Cloud projects the script creates.
 
