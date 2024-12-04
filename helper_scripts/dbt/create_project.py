@@ -1,7 +1,7 @@
 import json
 import requests
 
-DBT_CLOUD_BASE_URL = "https://cloud.getdbt.com/api/v3/"
+DBT_CLOUD_BASE_URL = "<ENTER_ACCESS_URL>/api/v3/"
 
 
 def run(first_name, last_name, account_id):
