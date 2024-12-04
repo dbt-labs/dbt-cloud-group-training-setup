@@ -111,28 +111,28 @@ Create a new dbt Cloud account and name it with the format "CLIENT Group dbt Lea
 }
 ```
 
-4. Create a virtual environment that you can use to run the script. First create the virtual environment with the command `python3 -m venv env`. Then activate it using the command `source env/bin/activate`. Then install all dependencies using the command `pip3 install --upgrade pip && pip install -r requirements.txt`.
+5. Create a virtual environment that you can use to run the script. First create the virtual environment with the command `python3 -m venv env`. Then activate it using the command `source env/bin/activate`. Then install all dependencies using the command `pip3 install --upgrade pip && pip install -r requirements.txt`.
 
-5. Do a test run by running a command similar to the following, except put in your YML file `python3 setup.py my_yaml_file.yml setup --test`. For example, `python3 setup.py 2021-08-25_private_scentre_group.yml setup --test`. This will run the script for one learner. You can run `python setup.py -h` for more details on the command-line arguments for this script.
+6. Do a test run by running a command similar to the following, except put in your YML file `python3 setup.py my_yaml_file.yml setup --test`. For example, `python3 setup.py 2021-08-25_private_scentre_group.yml setup --test`. This will run the script for one learner. You can run `python setup.py -h` for more details on the command-line arguments for this script.
 
-6. If you want to make any changes to the email template, go to [html_templates](html_templates) and edit the relevant HTML file. Email templates can access any values in the Google Sheet and any info in the session block of the config file you created above.
+7. If you want to make any changes to the email template, go to [html_templates](html_templates) and edit the relevant HTML file. Email templates can access any values in the Google Sheet and any info in the session block of the config file you created above.
 
-7. Once you've confirmed that everything looks good to go, use the [Makefile](Makefile) to set the shell command that you want to run for setting up a learn. It will be similar to the command in step #3 above but without the `--test` flag. Run the command.
+8. Once you've confirmed that everything looks good to go, use the [Makefile](Makefile) to set the shell command that you want to run for setting up a learn. It will be similar to the command in step #3 above but without the `--test` flag. Run the command.
 
 - The script will now work its magic. In its current version, the script will:
   - Create users in the Snowflake account you created credentials for.
   - Create drafts emails to attendees directly in your Gmail account. Note: This does NOT send them. Check your Drafts folder.
   - Create one project per learner in the dbt Cloud account that you specified in the config file.
 
-8. Double check in the dbt Cloud account that all of the projects were made correctly - one per learner with their full name in the project name. Each project should have a database connection and a managed repo.
+9. Double check in the dbt Cloud account that all of the projects were made correctly - one per learner with their full name in the project name. Each project should have a database connection and a managed repo.
 
-9. Invite each learner to the dbt Cloud project (Account Settings > Invite Users).
+10. Invite each learner to the dbt Cloud project (Account Settings > Invite Users).
   - Another option: add each user through the backend. This reduces some confusion with learners who already have existing accounts. Caveat - this will only work for users who already have a dbt Cloud account. If they are new users, you will need to add them through the front end.
   - To add a learner to the account through the [dbt Cloud backend](https://cloud.getdbt.com/backend/), you will need to be connected to the [VPN](https://www.notion.so/dbtlabs/VPN-Setup-Guide-e169db2aa0a24bfeb16396f92cadfb20). Find the account you created for this training under "Accounts". Scroll to the "User Licenses" section and manually add each learner by clicking the "+ Add another User License" and then clicking on the magnifying glass icon next to the new field. Enter the learner's email address. 
 
-10. Double check the email drafts and then send them.
+11. Double check the email drafts and then send them.
 
-11. Commit your changes to your branch.
+12. Commit your changes to your branch.
 
 
 ### Reauthorizing Google Credentials
